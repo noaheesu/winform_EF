@@ -3,12 +3,11 @@
     public partial class Library
     {
         #region Public Method
-
         public void CountryList(ComboBox country)
         {
             List<string> countries = new List<string>()
                 {
-                    "Select State",
+                    "Select Country",
                     "United States",
                     "China",
                     "Japan",
@@ -32,6 +31,7 @@
                 };
             country.Items.AddRange(countries.ToArray());
         }
+
         public void States(ComboBox state)
         {
             List<string> states = new List<string>()
@@ -47,25 +47,32 @@
             };
             state.Items.AddRange(states.ToArray());
         }
+
         public void CreatedBy(ComboBox By)
         {
             List<string> createdBy = new List<string>()
             {
-                "Select State", "User", "Admin", "Manager"
+                "Select creator", "User", "Admin", "Manager"
             };
             By.Items.AddRange(createdBy.ToArray());
         }
+
         public void ModifiedBy(ComboBox By)
         {
             List<string> modifiedBy = new List<string>()
             {
-                "Select State", "Admin", "Manager"
+                "Select modifier", "Admin", "Manager"
             };
             By.Items.AddRange(modifiedBy.ToArray());
         }
 
-
-
+        public void ComboBoxIndexChange(ComboBox comboBox)
+        {
+            if (comboBox.SelectedIndex == 0)
+            {
+                comboBox.SelectedIndex = -1;
+            }
+        }
 
         public void OpenForm<T>(Form form) where T : Form, new()
         {

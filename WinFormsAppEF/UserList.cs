@@ -72,24 +72,16 @@ namespace WinFormsAppEF
             userUpdate.modifiedByComboBox.Text = currentRow.Cells[15].Value?.ToString();
             userUpdate.uidTextBox.Text = currentRow.Cells[16].Value?.ToString();
 
+            //These will call after because they need value for it.
             userUpdate.createNewUserBtn.Visible = false;
-
-
-            //userUpdate.displayBox.Text = currentRow.Cells[1].Value?.ToString();
-
-            if (!string.IsNullOrEmpty(userUpdate.emailTextBox.Text))
-            {
-                userUpdate.emailTextBox.Enabled = false;
-            }
+            userUpdate.createDateTextBox.Enabled = false;
+            userUpdate.emailTextBox.Enabled = false;
 
             if (!string.IsNullOrEmpty(userUpdate.createdByComboBox.Text))
             {
                 userUpdate.createdByComboBox.Enabled = false;
             }
-            if (!string.IsNullOrEmpty(userUpdate.createDateTextBox.Text))
-            {
-                userUpdate.createDateTextBox.Enabled = false;
-            }
+
             if (!string.IsNullOrEmpty(userUpdate.modifyDateTextBox.Text))
             {
                 userUpdate.modifyDateTextBox.Enabled = false;
@@ -103,7 +95,23 @@ namespace WinFormsAppEF
         private void RefreshUserData()
         {
             UserData();
-            //library.ResetSearch(firstNameSearch, lastNameSearch, zipSearch, phoneSearch, companySearch, stateSearch);
+            ResetUserSearch();
+        }
+
+        private void ResetUserSearch()
+        {
+            firstNameSearch.Clear();
+            lastNameSearch.Clear();
+            zipSearch.Clear();
+            phoneSearch.Clear();
+            companySearch.Clear();
+            stateSearch.Clear();
+        }
+
+        private void SetupDataGridView()
+        {
+            dataGridView1.Columns["ModifyDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
+            dataGridView1.Columns["CreateDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
         }
 
         private void FilterData(Func<UserInformation, bool> filterPredicate)
@@ -134,8 +142,7 @@ namespace WinFormsAppEF
                     })
                     .ToList();
 
-                dataGridView1.Columns["ModifyDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
-                dataGridView1.Columns["CreateDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
+                SetupDataGridView();
 
                 dataGridView1.DataSource = filteredData;
             }
@@ -170,6 +177,7 @@ namespace WinFormsAppEF
         {
             UserUpdate newUser = new UserUpdate();
 
+            newUser.editUserLabel.Text = "Add new user";
             newUser.saveBtn.Visible = false;
             newUser.deleteBtn.Visible = false;
             newUser.label13.Visible = false;

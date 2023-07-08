@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label6 = new Label();
             label5 = new Label();
@@ -163,6 +163,7 @@
             // 
             stateSearch.BackColor = SystemColors.WindowFrame;
             stateSearch.BorderStyle = BorderStyle.None;
+            stateSearch.Cursor = Cursors.IBeam;
             stateSearch.ForeColor = SystemColors.Window;
             stateSearch.Location = new Point(680, 43);
             stateSearch.Name = "stateSearch";
@@ -174,6 +175,7 @@
             // 
             companySearch.BackColor = SystemColors.WindowFrame;
             companySearch.BorderStyle = BorderStyle.None;
+            companySearch.Cursor = Cursors.IBeam;
             companySearch.ForeColor = SystemColors.Window;
             companySearch.Location = new Point(680, 15);
             companySearch.Name = "companySearch";
@@ -185,6 +187,7 @@
             // 
             phoneSearch.BackColor = SystemColors.WindowFrame;
             phoneSearch.BorderStyle = BorderStyle.None;
+            phoneSearch.Cursor = Cursors.IBeam;
             phoneSearch.ForeColor = SystemColors.Window;
             phoneSearch.Location = new Point(464, 45);
             phoneSearch.Name = "phoneSearch";
@@ -196,6 +199,7 @@
             // 
             zipSearch.BackColor = SystemColors.WindowFrame;
             zipSearch.BorderStyle = BorderStyle.None;
+            zipSearch.Cursor = Cursors.IBeam;
             zipSearch.ForeColor = SystemColors.Window;
             zipSearch.Location = new Point(464, 16);
             zipSearch.Name = "zipSearch";
@@ -207,6 +211,7 @@
             // 
             lastNameSearch.BackColor = SystemColors.WindowFrame;
             lastNameSearch.BorderStyle = BorderStyle.None;
+            lastNameSearch.Cursor = Cursors.IBeam;
             lastNameSearch.ForeColor = SystemColors.Window;
             lastNameSearch.Location = new Point(235, 45);
             lastNameSearch.Name = "lastNameSearch";
@@ -218,6 +223,7 @@
             // 
             firstNameSearch.BackColor = SystemColors.WindowFrame;
             firstNameSearch.BorderStyle = BorderStyle.None;
+            firstNameSearch.Cursor = Cursors.IBeam;
             firstNameSearch.ForeColor = Color.White;
             firstNameSearch.Location = new Point(235, 17);
             firstNameSearch.Name = "firstNameSearch";
@@ -270,35 +276,35 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.BackgroundColor = SystemColors.ActiveCaption;
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Control;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Email, UserFirstName, UserLastName, Company, Address1, Address2, ZipPostalCode, City, Country, State, PhoneNumber, Description, CreateDate, CreatedBy, ModifyDate, ModifiedBy, UID });
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Control;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle12.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(946, 548);

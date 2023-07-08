@@ -68,6 +68,7 @@
             deleteBtn = new Button();
             saveBtn = new Button();
             panel3 = new Panel();
+            editUserLabel = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             SuspendLayout();
@@ -186,11 +187,13 @@
             // 
             // createdByComboBox
             // 
+            createdByComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createdByComboBox.FormattingEnabled = true;
             createdByComboBox.Location = new Point(247, 546);
             createdByComboBox.Name = "createdByComboBox";
             createdByComboBox.Size = new Size(394, 23);
             createdByComboBox.TabIndex = 12;
+            createdByComboBox.SelectedIndexChanged += createdByComboBox_SelectedIndexChanged;
             // 
             // modifiedByComboBox
             // 
@@ -199,6 +202,7 @@
             modifiedByComboBox.Name = "modifiedByComboBox";
             modifiedByComboBox.Size = new Size(394, 23);
             modifiedByComboBox.TabIndex = 15;
+            modifiedByComboBox.SelectedIndexChanged += modifiedByComboBox_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -398,6 +402,7 @@
             // panel4
             // 
             panel4.BackColor = Color.Gainsboro;
+            panel4.Controls.Add(editUserLabel);
             panel4.Controls.Add(createNewUserBtn);
             panel4.Controls.Add(deleteBtn);
             panel4.Controls.Add(saveBtn);
@@ -458,6 +463,16 @@
             panel3.Size = new Size(859, 54);
             panel3.TabIndex = 0;
             // 
+            // editUserLabel
+            // 
+            editUserLabel.AutoSize = true;
+            editUserLabel.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            editUserLabel.Location = new Point(12, 71);
+            editUserLabel.Name = "editUserLabel";
+            editUserLabel.Size = new Size(207, 31);
+            editUserLabel.TabIndex = 36;
+            editUserLabel.Text = "Edit user details";
+            // 
             // UserUpdate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -472,6 +487,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -517,5 +533,6 @@
         public Label label15;
         public Label label16;
         public Label label13;
+        public Label editUserLabel;
     }
 }

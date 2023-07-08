@@ -4,6 +4,7 @@ namespace WinFormsAppEF.Models;
 
 public partial class WinformDbContext : DbContext
 {
+    //Constructor
     public WinformDbContext()
     {
     }

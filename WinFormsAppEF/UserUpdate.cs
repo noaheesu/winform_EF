@@ -1,4 +1,5 @@
-﻿using WinFormsAppEF.Models;
+﻿using System.Text.RegularExpressions;
+using WinFormsAppEF.Models;
 
 namespace WinFormsAppEF
 {
@@ -13,9 +14,9 @@ namespace WinFormsAppEF
         {
             InitializeComponent();
 
+            library.CreatedBy(createdByComboBox);
             library.States(stateComboBox);
             library.CountryList(countryComboBox);
-            library.CreatedBy(createdByComboBox);
             library.ModifiedBy(modifiedByComboBox);
         }
         #endregion Constructor and Disposer
@@ -67,68 +68,81 @@ namespace WinFormsAppEF
             }
         }
 
-        private void CreateNewUser()
+        private bool DataValidate()
         {
-            if (string.IsNullOrEmpty(emailTextBox.Text))
+            bool rv = true;
+
+            string email = emailTextBox.Text.Trim();
+            // Email format validation using regular expression
+            string emailPattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+            if (!Regex.IsMatch(email, emailPattern))
             {
-                MessageBox.Show("Please enter email address.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a valid email address.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 emailTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(firstNameTextBox.Text))
+
+            else if (string.IsNullOrWhiteSpace(firstNameTextBox.Text))
             {
                 MessageBox.Show("Please enter first name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 firstNameTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(lastNameTextBox.Text))
+            else if (string.IsNullOrWhiteSpace(lastNameTextBox.Text))
             {
                 MessageBox.Show("Please enter last name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lastNameTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(companyTextBox.Text))
+            else if (string.IsNullOrWhiteSpace(companyTextBox.Text))
             {
                 MessageBox.Show("Please enter company.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 companyTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(addressTextBox.Text))
+            else if (string.IsNullOrWhiteSpace(addressTextBox.Text))
             {
                 MessageBox.Show("Please enter address.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 addressTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(zipTextBox.Text))
+            else if (string.IsNullOrWhiteSpace(zipTextBox.Text))
             {
                 MessageBox.Show("Please enter zip/postalCode.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 zipTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(cityTextBox.Text))
+            else if (string.IsNullOrWhiteSpace(cityTextBox.Text))
             {
                 MessageBox.Show("Please enter city.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cityTextBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(countryComboBox.Text))
+            else if (string.IsNullOrEmpty(countryComboBox.Text))
             {
                 MessageBox.Show("Please enter country.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 countryComboBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(stateComboBox.Text))
+            else if (string.IsNullOrEmpty(stateComboBox.Text))
             {
                 MessageBox.Show("Please enter state.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 stateComboBox.Focus();
-                return;
+                rv = false;
             }
-            if (string.IsNullOrEmpty(phoneTextBox.Text))
+            else if (string.IsNullOrWhiteSpace(phoneTextBox.Text))
             {
                 MessageBox.Show("Please enter phone number.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 phoneTextBox.Focus();
-                return;
+                rv = false;
             }
+            return rv;
+        }
+
+        private void CreateNewUser()
+        {
+            if (!DataValidate())
+                return;
 
             using (var dbContext = new WinformDbContext())
             {
@@ -244,6 +258,16 @@ namespace WinFormsAppEF
         {
             DeleteUser();
             this.Close();
+        }
+
+        private void createdByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            library.ComboBoxIndexChange(createdByComboBox);
+        }
+
+        private void modifiedByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            library.ComboBoxIndexChange(modifiedByComboBox);
         }
         #endregion Event Handlers
     }
